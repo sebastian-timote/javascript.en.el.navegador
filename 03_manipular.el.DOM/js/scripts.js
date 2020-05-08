@@ -29,16 +29,44 @@
 
 //otra forma
 
+// const parent = document.getElementById('parent'),
+//       childs = Array.from(parent.children),
+//       childParent = childs.filter(child => child.children.length > 0)[0],
+//       grandSons = Array.from(childParent.children),
+//       grandson3 = grandSons.filter(child => child.textContent.trim() === 'nietos 3')[0],
+//       newElement = document.createElement('h2')
+// newElement.textContent = 'Soy un nuevo elemento'
+
+// childParent.insertBefore(newElement,grandson3)
+
+/*******EJEMPLO CON INSERTBEFORE *******/
+//vamos a insertar un div o publicidad en la mitad de unos parrafos
+// const post = document.getElementById('post'),
+//       ad = document.createElement('div')
+// ad.id = 'publicidad'
+// ad.textContent = 'publicidad'
+
+// const getMiddleChild = element => {
+//     const childs = element.children,
+//           l = childs.length,
+//           i = Math.floor(l / 2)
+//     return childs[i]
+// }
+// post.insertBefore(ad, getMiddleChild(post))
+
+/******* INSERTADJACENT*********/
+
 const parent = document.getElementById('parent'),
-      childs = Array.from(parent.children),
-      childParent = childs.filter(child => child.children.length > 0)[0],
-      grandSons = Array.from(childParent.children),
-      grandson3 = grandSons.filter(child => child.textContent.trim() === 'nietos 3')[0],
-      newElement = document.createElement('h2')
-newElement.textContent = 'Soy un nuevo elemento'
+      ad = document.createElement('div');
+ad.id = 'EDteam'
+ad.textContent = 'soy un ejemplo de insert adjacent'
 
-childParent.insertBefore(newElement,grandson3)
+// parent.insertAdjacentElement('beforebegin', ad)//es un hermano anterior
+//parent.insertAdjacentElement('afterbegin', ad)//es un primer hijo
+//parent.insertAdjacentElement('beforeend', ad)//es un ultimo hijo
+//parent.insertAdjacentElement('afterend', ad)//es un hermano siguiente
+//parent.insertAdjacentText('beforebegin', 'hola mundo')//tambien se puede insertar textos
+//parent.insertAdjacentHTML('beforebegin', `<h1>holaMundo</h1>`)//tambien etiquetas html
 
 
 
-             
