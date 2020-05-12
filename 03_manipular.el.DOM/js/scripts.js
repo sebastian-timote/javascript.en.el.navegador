@@ -1,5 +1,8 @@
 //const parent = document.getElementById('parent')
-/*****HIJOS/CHILD ******/
+/***************************************|
+|          HIJOS/CHILD                  |                                       
+****************************************/
+
 //console.log(parent.children);//esta me devuelve un html collection con solo los hijos sin los nietos
 //console.log(parent.querySelectorAll('div'))//esta me devuelve un nodelist con con hijos y nietos
 //console.log(parent.childNodes);//devuelve un nodelist consolo los hijos
@@ -8,7 +11,10 @@
 //console.log(parent.hasChildNodes())//este metodo devuelve boolean pero si el element tiene hijos
 //para que devuelva false tiene que estar la etiqueta html sin nada de enter o espacios ya que los cuenta como hijos 
 
-/*******HERMANOS/SIBLING ******/
+/***************************************|
+|          HERMANOS/SIBLING             |                                       
+****************************************/
+
 
 // const grandson2 = document.getElementById('grandson_2')
 // console.log(grandson2.previousElementSibling)// el anterior hermano
@@ -18,7 +24,10 @@
 // console.log(grandson2.parentNode)// igual el parent simepre es un elemnet
 // console.log(grandson2.parentElement.parentElement)//se devuelve al padre del hijo 2
 
-/****INSERTAR ELEMENTOS ********/
+/***************************************|
+|          INSERTAR ELEMENTOS           |                                       
+****************************************/
+
 // const parent = document.getElementById('parent'),
 //       grandson2 = document.getElementById('grandson_2'),
 //       newElement = document.createElement('h2');
@@ -39,7 +48,10 @@
 
 // childParent.insertBefore(newElement,grandson3)
 
-/*******EJEMPLO CON INSERTBEFORE *******/
+/***************************************|
+|          EJEMPLO CON INSERTBEFORE     |                                       
+****************************************/
+
 //vamos a insertar un div o publicidad en la mitad de unos parrafos
 // const post = document.getElementById('post'),
 //       ad = document.createElement('div')
@@ -54,19 +66,47 @@
 // }
 // post.insertBefore(ad, getMiddleChild(post))
 
-/******* INSERTADJACENT*********/
+/***************************************|
+|          INSERTADJACENT               |                                       
+****************************************/
 
-const parent = document.getElementById('parent'),
-      ad = document.createElement('div');
-ad.id = 'EDteam'
-ad.textContent = 'soy un ejemplo de insert adjacent'
 
-// parent.insertAdjacentElement('beforebegin', ad)//es un hermano anterior
+// const parent = document.getElementById('parent'),
+//       ad = document.createElement('div');
+// ad.id = 'EDteam'
+// ad.textContent = 'soy un ejemplo de insert adjacent'
+
+//parent.insertAdjacentElement('beforebegin', ad)//es un hermano anterior
 //parent.insertAdjacentElement('afterbegin', ad)//es un primer hijo
 //parent.insertAdjacentElement('beforeend', ad)//es un ultimo hijo
 //parent.insertAdjacentElement('afterend', ad)//es un hermano siguiente
 //parent.insertAdjacentText('beforebegin', 'hola mundo')//tambien se puede insertar textos
 //parent.insertAdjacentHTML('beforebegin', `<h1>holaMundo</h1>`)//tambien etiquetas html
 
+/***************************************|
+|          REEMPLAZAR HIJOS             |                                       
+****************************************/
 
+//parent.replaceChild(ad, parent.children[0]);
 
+/***************************************|
+|    INSERT CON METODOS DE JQUERY       |                                       
+****************************************/
+
+//parent.before(ad)//inserta hermano anterior 
+//parent.after(ad)//hermano siguiente
+//parent.prepend(ad)//primer hijo
+//parent.append(ad)//ultimo hijo
+//parent.children[0].replaceWith(ad)//reemplaza hijo
+
+/***************************************|
+|    clonar y eliminar                  |                                       
+****************************************/
+const iggybb = document.querySelector('img'),
+      iggyParent = document.getElementById('iggyparent'),
+      cloneIggy = iggybb.cloneNode(true)//el true es si quiere clonar el elemento con hijos
+cloneIggy.title='clone'
+iggyParent.appendChild(cloneIggy);
+//iggybb.remove();
+
+console.log(cloneIggy);
