@@ -12,9 +12,20 @@
     font-weight: bold;
 } */
 /*style insert adjacent*/
-div {
+/* div {
     border: 1px solid red;
     padding: 1em;
     text-align: center;
     margin: .5em;
+} */
+
+/* EJEMPLO getComputedstyle()*/
+body {
+    font-size: 2em;
+}
+h1 {
+    font-size: 2em;
+}
+p {
+    font-size: .5em;
 }

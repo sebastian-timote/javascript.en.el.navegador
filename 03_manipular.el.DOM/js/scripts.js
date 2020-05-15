@@ -102,11 +102,102 @@
 /***************************************|
 |    clonar y eliminar                  |                                       
 ****************************************/
-const iggybb = document.querySelector('img'),
-      iggyParent = document.getElementById('iggyparent'),
-      cloneIggy = iggybb.cloneNode(true)//el true es si quiere clonar el elemento con hijos
-cloneIggy.title='clone'
-iggyParent.appendChild(cloneIggy);
-//iggybb.remove();
+// const iggybb = document.querySelector('img'),
+//       iggyParent = document.getElementById('iggyparent'),
+//       cloneIggy = iggybb.cloneNode(true)//el true es si quiere clonar el elemento con hijos
+// cloneIggy.title='clone'
+// iggyParent.appendChild(cloneIggy);
+// //iggybb.remove();
 
-console.log(cloneIggy);
+// console.log(cloneIggy);
+
+/***************************************|
+|    crear elementos                    |                                       
+****************************************/
+//este es un ejemplo de como podriamos hacerlo sin necesidad de createDocumentFragment()
+//createDocumentFragment() -> pero al usarla la guardamos en memoria la iteracion y luego la pintamos
+//esto se hace con el fin de no consumir tanto recursos si manejamos muchos datos
+
+//ejemplo sin createDocumentFragment()
+// const teachers = ['alexis','beto','alvaro','daniel','jon','alexis','beto','alvaro','daniel','jon',
+// 'alexis','beto','alvaro','daniel','jon','alexis','beto','alvaro','daniel','jon','alexis','beto','alvaro','daniel','jon'],
+//       teacherList = document.createElement('ul'),
+//       teacherListContainer = document.getElementById('teacher-list');
+// teacherListContainer.appendChild(teacherList)
+
+// for (let teacher of teachers) {
+//     const li = document.createElement('li')
+//     teacherList.appendChild(li);
+//     li.textContent = teacher;
+// }
+
+
+//ejemplo con createDocumentFragment()
+// const teachers = ['alexis','beto','alvaro','daniel','jon','alexis','beto','alvaro','daniel','jon',
+// 'alexis','beto','alvaro','daniel','jon','alexis','beto','alvaro','daniel','jon','alexis','beto','alvaro','daniel','jon'],
+//       teacherList = document.createElement('ul'),
+//       teacherListContainer = document.getElementById('teacher-list'),
+//       teacherlistFragment = document.createDocumentFragment();
+// teacherListContainer.appendChild(teacherList)
+
+// for (let teacher of teachers) {
+//     const li = document.createElement('li')
+//     teacherlistFragment.appendChild(li);
+//     li.textContent = teacher;
+// }
+// teacherList.appendChild(teacherlistFragment);
+
+/***************************************|
+|    TEMPLATES HTML                     |                                       
+****************************************/
+
+// const template = document.getElementById("template"),
+//       myNewTemplate =template.content.cloneNode(true);
+// myNewTemplate.querySelector('h2').textContent = 'EDteam';
+// myNewTemplate.querySelector("p").textContent = 'tu futuro te esta esperando';
+
+// document.getElementById('content').appendChild(myNewTemplate)
+
+/***************************************|
+|    CSS OM                             |                                       
+****************************************/
+//STYLE
+//mathMedia() -> permite manejar mediaquerys
+//getComputedstyle() -> muestra los estilos calculados por el navegador
+//getBoundingclientRect() -> muestra la posicion y el tamano exacto de un elemento
+// const title = document.querySelector('h1'),
+//       description = document.querySelector('p'),
+//       mediumBp = matchMedia('(min-width: 640px) and (orientation: portrait)')//es un objeto que usamos para evaluar una media query de css
+
+// // title.style.color = 'red'
+// // title.style.backgroundColor = 'blue'//en javascript los estilos con guion son con camel case
+
+// const changeColor = ()=> {
+//     if (mediumBp.matches) {
+//         document.body.style.background = 'red'
+//     }else {
+//         document.body.style.background = 'yellow'
+//     }
+// }
+
+// console.log(mediumBp);
+
+// addEventListener('resize', changeColor)
+// addEventListener('DOMContentLoaded', changeColor)
+
+//ESTA ES OTRA FORMA SIN EL MEDIA QUERY PERO SOLO TOMA LOSS DATOS DEL ANCHO DEL  VIEWPORT
+// if (window.innerWidth > 640) {
+//     document.body.style.background = 'yellow'
+// }
+
+//getComputedstyle() -> muestra los estilos calculados por el navegador
+// const title = document.querySelector('h1'),
+//       description = document.querySelector('p');
+//console.log(getComputedStyle(description).fontSize);
+// console.log(getComputedStyle(description).display);
+// console.log(getComputedStyle(description).position);
+
+//EJEMPLO GETBOUNDINGCLIENTRECT()
+const boton = document.querySelector('button')
+console.log(boton.getBoundingClientRect().width)
+
